@@ -1,0 +1,13 @@
+{
+  "name": "jit-framework",
+  "dependencies": {
+    "angular-ui-mask": "~1.6.1",
+    "bootstrap": "~3.3.5",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angular-animate": "~1.4.8",
+    "angular-messages": "~1.4.8",
+    "jquery": "~2.1.4",
+    "angular-google-maps": "~2.2.1",
+    "ngInfiniteScroll": "~1.2.1"
+  }
+}
