@@ -4,6 +4,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import com.jid.daos.ProductRepository;
+import com.jid.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -74,7 +75,7 @@ public class CategoryController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/gogo")
     @ResponseBody
-    public String gogo() {
-        return productRepository.findByName("Aaa").getName();
+    public Product gogo() {
+        return productRepository.findByName("Aaa");
     }
 }
