@@ -1,16 +1,13 @@
 package com.jid.models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
 /**
  * Created by igor on 28/11/15.
  */
-
+@Entity
 public class Transacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

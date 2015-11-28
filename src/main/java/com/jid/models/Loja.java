@@ -18,7 +18,7 @@ public class Loja {
 
     @OneToMany
     @JoinColumn(name = "loja")
-    private List<Transacao> trsansacoes;
+    private List<Transacao> transacoes;
 
     public Integer getId() {
         return id;
@@ -44,11 +44,11 @@ public class Loja {
         this.ramoDeAtividade = ramoDeAtividade;
     }
 
-    public List<Transacao> getTrsansacoes() {
-        return trsansacoes;
+    public List<Transacao> getTransacoes() {
+        return transacoes;
     }
 
-    public void setTrsansacoes(List<Transacao> trsansacoes) {
-        this.trsansacoes = trsansacoes;
+    public void setTransacoes(List<Transacao> transacoes) {
+        this.transacoes = transacoes;
     }
 }

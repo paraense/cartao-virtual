@@ -1,5 +1,6 @@
 package com.jid.conf;
 
+import com.jid.service.JidUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -32,22 +33,29 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
       .and()
       .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
        */
+      http.authorizeRequests()
+              .antMatchers("/login").permitAll()
+              .antMatchers("/login/gogo").permitAll()
+              .antMatchers("/").permitAll()
+              .antMatchers("/cliente/**").hasRole("CLIENTE")
+              .antMatchers("/loja/**").hasRole("LOJA")
+              .anyRequest().authenticated();
    }
 
    @Autowired
-   private UserDetailsService users;
+   private JidUserDetailsService users;
 
    @Override
    protected void configure(AuthenticationManagerBuilder auth)
          throws Exception
    {
-      auth.userDetailsService(users).passwordEncoder(new BCryptPasswordEncoder());
+//      auth.userDetailsService(users).passwordEncoder(new BCryptPasswordEncoder());
    }
 
    @Override
    public void configure(WebSecurity web) throws Exception
    {
       //you can change 
-      web.ignoring().antMatchers("/resources/**");
+      web.ignoring().antMatchers("/resources/**").antMatchers("/login/**");
    }
 }
