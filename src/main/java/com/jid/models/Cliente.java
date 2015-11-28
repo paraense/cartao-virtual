@@ -104,4 +104,6 @@ public class Cliente {
     public void setExtratos(List<Extrato> extratos) {
         this.extratos = extratos;
     }
+    
+    
 }

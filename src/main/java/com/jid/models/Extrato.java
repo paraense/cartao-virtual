@@ -1,5 +1,6 @@
 package com.jid.models;
 
+import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -8,7 +9,7 @@ import java.util.Calendar;
  * Created by igor on 28/11/15.
  */
 @Entity
-public class Extrato {
+public class Extrato implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
