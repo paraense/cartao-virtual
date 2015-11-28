@@ -3,6 +3,7 @@ package com.jid.models;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by igor on 28/11/15.
@@ -19,14 +20,18 @@ public class Cliente {
 
     private BigDecimal saldo;
 
-    @OneToOne(optional = false)
-    private Usuario usuario;
-
     private String cpf;
 
     private Sexo sexo;
 
     private Calendar nascimento;
+
+    @OneToOne(optional = false)
+    private Usuario usuario;
+
+    @OneToMany
+    @JoinColumn(name = "cliente")
+    private List<Extrato> extratos;
 
     public Integer getId() {
         return id;
@@ -90,5 +95,13 @@ public class Cliente {
 
     public void setNascimento(Calendar nascimento) {
         this.nascimento = nascimento;
+    }
+
+    public List<Extrato> getExtratos() {
+        return extratos;
+    }
+
+    public void setExtratos(List<Extrato> extratos) {
+        this.extratos = extratos;
     }
 }

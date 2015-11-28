@@ -1,9 +1,6 @@
 package com.jid.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
@@ -21,6 +18,9 @@ public class Extrato {
     private BigDecimal valor;
 
     private TipoExtrato tipoExtrato;
+
+    @ManyToOne
+    private Cliente cliente;
 
     public Integer getId() {
         return id;
