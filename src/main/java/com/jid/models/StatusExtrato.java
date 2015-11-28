@@ -8,8 +8,9 @@ public enum StatusExtrato {
 
     EM_ANALISE,
     APROVADA,
+    CANCELADO,
     EM_USO,
-    REJEITDADA;
+    NAO_AUTORIZADO;
 
     
 }

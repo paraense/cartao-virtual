@@ -22,6 +22,10 @@ public class Extrato {
     private TipoExtrato tipoExtrato;
     
     private StatusExtrato status;
+    
+    private String descricao;
+    
+    private String codReferencia;
       
     
 
@@ -76,10 +80,6 @@ public class Extrato {
         this.dataAtualizacao = dataAtualizacao;
     }
     
-    
-    
-    
-
     public Cliente getCliente() {
         return cliente;
     }
@@ -87,4 +87,24 @@ public class Extrato {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getCodReferencia() {
+        return codReferencia;
+    }
+
+    public void setCodReferencia(String codReferencia) {
+        this.codReferencia = codReferencia;
+    }
+
+   
+    
+    
 }
