@@ -53,4 +53,12 @@ public class Extrato {
     public void setTipoExtrato(TipoExtrato tipoExtrato) {
         this.tipoExtrato = tipoExtrato;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }
