@@ -17,10 +17,16 @@ public class Extrato {
     private Integer id;
 
     private Calendar data;
+    
+    private Calendar dataAtualizacao;
 
     private BigDecimal valor;
 
     private TipoExtrato tipoExtrato;
+    
+    private StatusExtrato status;
+      
+    
 
     public Integer getId() {
         return id;
@@ -53,4 +59,24 @@ public class Extrato {
     public void setTipoExtrato(TipoExtrato tipoExtrato) {
         this.tipoExtrato = tipoExtrato;
     }
+
+    public StatusExtrato getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusExtrato status) {
+        this.status = status;
+    }
+
+    public Calendar getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+
+    public void setDataAtualizacao(Calendar dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
+    }
+    
+    
+    
+    
 }
