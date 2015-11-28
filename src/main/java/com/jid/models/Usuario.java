@@ -19,6 +19,8 @@ public class Usuario {
     private String email;
 
     private String senha;
+    
+    private String celular;
 
     public Integer getId() {
         return id;
@@ -51,4 +53,15 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+    
+    
+    
 }
