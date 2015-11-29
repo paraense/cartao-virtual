@@ -1,7 +1,9 @@
 package com.jid.models;
 
+import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -9,7 +11,8 @@ import java.util.List;
  * Created by igor on 28/11/15.
  */
 @Entity
-public class Cliente {
+public class Cliente implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,13 +28,13 @@ public class Cliente {
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Usuario usuario;
 
-    @OneToMany
-    @JoinColumn(name = "cliente")
-    private List<Extrato> extratos;
-    
-    @OneToMany
-    @JoinColumn(name = "cliente")
-    private List<Transacao> transacoes;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Extrato> extratos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Transacao> transacoes = new ArrayList<>();
+
+  
 
     public Integer getId() {
         return id;

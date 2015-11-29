@@ -26,11 +26,10 @@ public class Extrato implements Serializable {
     
     private String descricao;
     
-    private String codReferencia;
-      
-    
-
+    private String codReferencia;  
+  
     @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     public Integer getId() {

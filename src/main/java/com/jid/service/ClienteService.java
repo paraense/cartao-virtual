@@ -31,22 +31,19 @@ public class ClienteService {
     @Autowired
     private SessionService session;
 
+    public String efetuarRecarga(BigDecimal valor) {
 
-    public void efetuarRecarga(BigDecimal valor) {
-        
         Cliente cliente = session.getClienteLogado();
-        pagSeguroService.efetuaCheckout(cliente, valor);
+        String l = pagSeguroService.efetuaCheckout(cliente, valor);
 
         Extrato extrato = new Extrato();
         extrato.setTipoExtrato(TipoExtrato.ENTRADA);
         extrato.setStatus(StatusExtrato.EM_ANALISE);
         extrato.setValor(valor);
         extrato.setData(Calendar.getInstance());
-
-        cliente.getExtratos().add(extrato);
-
-        clienteRepository.save(cliente);
-
+        extrato.setCliente(cliente);
+        extratoRepository.save(extrato);
+        return l;
     }
 
     public String tranferencia(Cliente clienteReceptor, BigDecimal valor) {
@@ -79,7 +76,7 @@ public class ClienteService {
     }
 
     public void finalizarTransferenciaReceptor(Cliente clientePagador, Cliente clienteReceptor, BigDecimal valor) {
-        
+
         clienteReceptor.setSaldo(clienteReceptor.getSaldo().subtract(valor));
 
         Extrato extrato = new Extrato();

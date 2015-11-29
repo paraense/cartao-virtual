@@ -42,6 +42,7 @@ public class ClienteController {
     public ModelAndView home() {
 
         Cliente cliente = session.getClienteLogado();
+        System.out.println("lista"+ cliente.getTransacoes().size());
         this.mav = new ModelAndView();
         this.mav.addObject("cliente", cliente);
         this.mav.setViewName("home");
@@ -61,11 +62,10 @@ public class ClienteController {
     }
 
     @RequestMapping(value = "/recarregar", method = RequestMethod.POST)
-    @ResponseBody
     public String realizaRecarga(String valor) {
         try {
-            clienteService.efetuarRecarga(new BigDecimal(valor));
-            return "sucesso";
+           return "redirect:"+clienteService.efetuarRecarga(new BigDecimal(valor));
+           
         } catch (Exception e) {
             System.err.println(e.getMessage());
             return "erro";
