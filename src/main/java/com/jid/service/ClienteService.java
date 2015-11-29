@@ -28,11 +28,13 @@ public class ClienteService {
     @Autowired
     private ExtratoRepository extratoRepository;
 
-    private Extrato extrato;
+    @Autowired
+    private SessionService session;
+
 
     public void efetuarRecarga(BigDecimal valor) {
-        //pegar da sessão
-        Cliente cliente = new Cliente();
+        
+        Cliente cliente = session.getClienteLogado();
         pagSeguroService.efetuaCheckout(cliente, valor);
 
         Extrato extrato = new Extrato();
@@ -47,18 +49,17 @@ public class ClienteService {
 
     }
 
-    public void tranferencia(Cliente clienteReceptor, BigDecimal valor) {
+    public String tranferencia(Cliente clienteReceptor, BigDecimal valor) {
 
-        //pegar da sessão
-        Cliente clientePagador = new Cliente();
+        Cliente clientePagador = session.getClienteLogado();
 
         if (clientePagador.getSaldo().compareTo(valor) < 0) {
             System.out.println("O valor de tranferência é maior que o saldo");
-            return;
+            return "erro";
         }
         finalizarTransferenciaPagador(clientePagador, clienteReceptor, valor);
         finalizarTransferenciaReceptor(clientePagador, clienteReceptor, valor);
-
+        return "sucesso";
     }
 
     public void finalizarTransferenciaPagador(Cliente clientePagador, Cliente clienteReceptor, BigDecimal valor) {
@@ -78,7 +79,8 @@ public class ClienteService {
     }
 
     public void finalizarTransferenciaReceptor(Cliente clientePagador, Cliente clienteReceptor, BigDecimal valor) {
-        clienteReceptor.setSaldo(valor);
+        
+        clienteReceptor.setSaldo(clienteReceptor.getSaldo().subtract(valor));
 
         Extrato extrato = new Extrato();
         extrato.setStatus(StatusExtrato.EM_USO);
@@ -121,7 +123,7 @@ public class ClienteService {
             default:
 
         }
-        
+
         extratoRepository.save(extrato);
         return extrato;
     }

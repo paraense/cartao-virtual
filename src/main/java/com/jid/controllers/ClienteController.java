@@ -7,9 +7,12 @@ package com.jid.controllers;
 
 import com.jid.daos.ClienteRepository;
 import com.jid.models.Cliente;
+import com.jid.models.Usuario;
 import com.jid.service.ClienteService;
+import com.jid.service.SessionService;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,29 +25,32 @@ import org.springframework.web.servlet.ModelAndView;
  * @author John
  */
 @Controller
-@RequestMapping(value = "/cliente" )
+@RequestMapping(value = "/cliente")
 public class ClienteController {
-
+    
     @Autowired
     private ClienteRepository clienteRepository;
-
+    
+    @Autowired
+    private SessionService session;
+    
     @Autowired
     private ClienteService clienteService;
-
+    
     private ModelAndView mav;
-
+    
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
         System.out.println("Home entrou");
-        //pegar da sessão
-        Cliente cliente =  new Cliente();
         
-       // this.mav.addObject("usuario", cliente);
+        Cliente cliente = session.getClienteLogado();
+        
+        this.mav.addObject("cliente", cliente);
         this.mav = new ModelAndView();
         this.mav.setViewName("home");
         return this.mav;
     }
-
+    
     @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
     @ResponseBody
     public String cadastrar(@RequestParam Cliente cliente) {
@@ -56,7 +62,7 @@ public class ClienteController {
             return "erro";
         }
     }
-
+    
     @RequestMapping(value = "/recarregar", method = RequestMethod.POST)
     @ResponseBody
     public String realizaRecarga(String valor) {
@@ -68,5 +74,18 @@ public class ClienteController {
             return "erro";
         }
     }
-
+    
+    @RequestMapping(value = "/busca", method = RequestMethod.GET)
+    @ResponseBody
+    public void buscaUsuario(@RequestParam("celular") String celular) {
+        //busca usuario e tras a informações
+    }
+    
+    @RequestMapping(value = "/transferir", method = RequestMethod.POST)
+    @ResponseBody
+    public void tranfereValor(Cliente destinatario, BigDecimal valor) {
+        clienteService.tranferencia(destinatario, valor);
+        
+    }
+    
 }

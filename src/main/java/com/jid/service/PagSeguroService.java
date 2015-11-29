@@ -28,16 +28,16 @@ public class PagSeguroService {
     public String efetuaCheckout(Cliente cliente, BigDecimal valor) {
 
         Checkout checkout = new Checkout();
-        checkout.addItem("GERAR-CÓDIGO", "Recarga de créditos - Cartão virtual",
+        checkout.addItem("0001", "Recarga de créditos - Cartão virtual",
                 1, valor, Long.MIN_VALUE, BigDecimal.ZERO);
 
         String ddd = cliente.getUsuario().getCelular().substring(1, 2);
         System.out.println(ddd);
-        //tratar ddd de celular
+        
         checkout.setSender(cliente.getNome(), cliente.getUsuario().getEmail(),
                 ddd, cliente.getUsuario().getCelular(), DocumentType.CPF, cliente.getCpf());
 
-        checkout.setReference("COD-DE-REFERENCIA-GERAR");
+        checkout.setReference("1111-2222-3333-4444");
         checkout.setRedirectURL("http://www.cartaovirtual.com.br/profile");
         checkout.setNotificationURL("http://www.cartaovirtual.com.br/notificacao");
 
