@@ -7,12 +7,8 @@ package com.jid.controllers;
 
 import com.jid.daos.ClienteRepository;
 import com.jid.models.Cliente;
-import com.jid.models.Transacao;
-import com.jid.models.Usuario;
 import com.jid.service.ClienteService;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author John
  */
-@Controller("/cliente")
+@Controller
+@RequestMapping(value = "/cliente" )
 public class ClienteController {
 
     @Autowired
@@ -36,13 +33,13 @@ public class ClienteController {
 
     private ModelAndView mav;
 
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
-        
+        System.out.println("Home entrou");
         //pegar da sessão
         Cliente cliente =  new Cliente();
         
-        this.mav.addObject("usuario", cliente);
+       // this.mav.addObject("usuario", cliente);
         this.mav = new ModelAndView();
         this.mav.setViewName("home");
         return this.mav;
