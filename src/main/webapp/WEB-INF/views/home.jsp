@@ -17,6 +17,7 @@
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/freelancer.css">
@@ -59,7 +60,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Historico</a>
+                        <a href="#portfolio">Historico de Compras</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#saldo">Historico de Recargas</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#recarga-modal" class="portfolio-link" data-toggle="modal">Recarga</a>
@@ -98,67 +102,46 @@
                 </div>
             </div>
             <div class="row">
-                <c:forEach items="${cliente.transacoes}" var="transacao">
-                </c:forEach>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/assets/img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-1">
+                    <table class="table load-table" id="history">
+                        <thead>
+                            <tr>
+                                <th>Loja</th>
+                                <th>Valor</th>
+                                <th>Descricao</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- lugar dos elementos -->
+                        </tbody>
+                    </table>
+                    </div>
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/assets/img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
+        </div>
+    </section>
+    <section id="saldo">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <i class="fa fa-2x fa-credit-card"></i>
+                    <h2>Historico de Saldo</h2>
+                    <hr class="star-primary">
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/assets/img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/assets/img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/assets/img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/assets/img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-1">
+                    <table class="table load-table" id="">
+                        <thead>
+                        <tr>
+                            <th>Loja</th>
+                            <th>Valor</th>
+                            <th>Descricao</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- lugar dos elementos -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -206,7 +189,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2014
+                        Copyright &copy; CCard
                     </div>
                 </div>
             </div>
@@ -443,7 +426,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<c:url value="/assets/js/template/freelancer.js"/> "></script>
-
+    <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/js/data-table.js"></script>
 </body>
 
 </html>
