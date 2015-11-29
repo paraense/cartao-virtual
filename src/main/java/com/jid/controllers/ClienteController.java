@@ -37,16 +37,16 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
     
+    
+    
     private ModelAndView mav;
     
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
-        System.out.println("Home entrou");
         
         Cliente cliente = session.getClienteLogado();
-        
-        this.mav.addObject("cliente", cliente);
         this.mav = new ModelAndView();
+        this.mav.addObject("cliente", cliente);
         this.mav.setViewName("home");
         return this.mav;
     }
