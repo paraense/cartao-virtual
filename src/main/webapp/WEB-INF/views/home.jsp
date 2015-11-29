@@ -1,7 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,7 +113,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${transacoes}" var="transacao">
+                        <c:forEach items="${cliente.transacoes}" var="transacao">
                             <tr>
                                 <td>${transacao.loja.nome}</td>
                                 <td>${transacao.valor}</td>

@@ -1,5 +1,7 @@
 package com.jid.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,9 +18,9 @@ public class Loja {
 
     private String ramoDeAtividade;
 
-    @OneToMany
-    @JoinColumn(name = "loja")
-    private List<Transacao> trsansacoes;
+    @OneToMany(mappedBy = "loja", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Transacao> transacoes;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Usuario usuario;
@@ -47,12 +49,12 @@ public class Loja {
         this.ramoDeAtividade = ramoDeAtividade;
     }
 
-    public List<Transacao> getTrsansacoes() {
-        return trsansacoes;
+    public List<Transacao> getTransacoes() {
+        return transacoes;
     }
 
-    public void setTrsansacoes(List<Transacao> trsansacoes) {
-        this.trsansacoes = trsansacoes;
+    public void setTransacoes(List<Transacao> transacoes) {
+        this.transacoes = transacoes;
     }
 
     public Usuario getUsuario() {

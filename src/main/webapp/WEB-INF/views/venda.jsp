@@ -98,6 +98,8 @@
 
                 <h2>Últimas transações</h2>
                 <hr class="star-primary">
+
+
             </div>
         </div>
         <div class="row">
@@ -279,13 +281,14 @@
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Valor R$</label>
                                     <input type="text" name="valor" class="form-control"
-                                           placeholder="Valor de sua recarga" id="valor">
+                                           placeholder="Valor" id="valor">
 
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>CPF</label>
-                                    <input type="text" name="valor" class="form-control" placeholder="Somente números"
+                                    <input type="text" name="valor" class="form-control"
+                                           placeholder="CPF (Somente números)"
                                            id="cpf" onkeyup="cpf_keyup()">
 
                                     <p class="help-block text-danger" id="cpf_erro"></p>
@@ -299,7 +302,7 @@
                             <div class="row">
                                 <div class="form-group col-xs-12">
                                     <button class="btn btn-success btn-lg" id="btnEnvia">
-                                        Efeturar Recarga
+                                        Efetuar venda
                                     </button>
                                 </div>
                             </div>
@@ -311,6 +314,62 @@
     </div>
 </div>
 
+
+<div class="portfolio-modal modal fade" id="confirma-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <input type="hidden" id="codTransacao">
+
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Valor R$</label>
+                            <input type="text" name="valor" class="form-control"
+                                   placeholder="Código de confirmação" id="codigo">
+
+                            <p class="help-block text-danger"></p>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button class="btn btn-success btn-lg" id="btnConfirma" onclick="confirma()">
+                                    Confirmar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="posConfirma-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" onclick="finaliza()">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2 id="msgConfirma"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- jQuery -->
@@ -333,30 +392,43 @@
 <script src="<c:url value="/assets/js/template/freelancer.js"/> "></script>
 
 <script>
-    function envia_venda(e) {
-//        $.post("/loja/venda", {valor: $('#valor'), cpf: $('#cpf')})
-//                .done(function (data) {
-//                    alert("Data Loaded: " + data);
-//                });
-
+    function finaliza() {
+        $('#recarga-modal').modal('hide');
+        $('#confirma-modal').modal('hide');
+        $('#posConfirma-modal').modal('hide');
     }
 
-    $.ready(function() {
+    function confirma() {
+        $.ajax({
+            url: "/loja/confirma",
+            data: {idTransacao: $('#codTransacao').val(), codigo: $('#codigo').val()},
+            method: 'POST'
+        }).done(function (data) {
+            if (data == 'ok') {
+                $('#msgConfirma').html('Transação aceita');
+            }
+            else {
+                $('#msgConfirma').html(data);
+            }
 
+            $('#posConfirma-modal').modal('toggle');
+        });
+    }
 
-        $('#btnEnvia').onclick(function(e) {
-            e.preventDefault();
-
+    (function () {
+        $('#recarga-box').submit(function (form) {
+            form.preventDefault();
 
             $.ajax({
                 url: "/loja/venda",
                 data: {valor: $('#valor').val(), cpf: $('#cpf').val()},
                 method: 'POST'
             }).done(function (data) {
-                alert("Data Loaded: " + data);
+                $('#codTransacao').val(data);
+                $('#confirma-modal').modal('toggle');
             });
         });
-    });
+    })();
 
     function cpf_keyup() {
         $('#cpf_achou').html("");

@@ -45,8 +45,21 @@ public class LojaController {
 
     @RequestMapping(value = "/venda", method = RequestMethod.POST)
     @ResponseBody
-    public String realizaVenda(@RequestParam BigDecimal valor, @RequestParam String cpf) {
-//        Cliente cliente = clienteRepository.findByUsuario(usuarioRepository.findByCpf(cpf));
-        return "";
+    public Integer realizaVenda(@RequestParam BigDecimal valor, @RequestParam String cpf) {
+        Cliente cliente = clienteRepository.findByCpf(cpf);
+
+        return transacaoService.realizaVenda(cliente, valor);
+    }
+
+    @RequestMapping(value = "/confirma", method = RequestMethod.POST)
+    @ResponseBody
+    public String confirmaVenda(@RequestParam Integer idTransacao, @RequestParam String codigo) {
+        try {
+            transacaoService.aprovar(idTransacao, codigo);
+            return "ok";
+        }
+        catch (Exception ex) {
+            return ex.getMessage();
+        }
     }
 }
