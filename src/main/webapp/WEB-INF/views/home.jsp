@@ -395,11 +395,28 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <form method="post" name="recarga" id="transferencia-box" action="recarregar" novalidate>
+                                 <h4 id="error-message" class="error" style="display: none">Problema ao te encontrar no sistema</h4>
                                 <div class="row control-group">
                                     <div class="form-group col-xs-12 floating-label-form-group controls">
                                         <label>Celular</label>
                                         <input type="text" name="celular" class="form-control" placeholder="Precisamos do seu celular, somente numeros" id="phone" required >
                                         <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div id="user-data">
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                                            <label>None</label>
+                                            <input type="text" name="nome" class="form-control" placeholder="Confirme seu nome" id="nome" disabled required >
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                                            <label>email</label>
+                                            <input type="text" name="email" class="form-control" placeholder="Seu email" id="email" disabled required >
+                                            <p class="help-block text-danger"></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
@@ -474,4 +491,14 @@
     <script src="/assets/js/transferencia.js"></script>
 </body>
 
+<style>
+ #user-data {
+   display: none;
+ }
+
+.active-profile {
+ display: block;
+}
+
+</style>
 </html>
