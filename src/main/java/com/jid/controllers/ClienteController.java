@@ -74,6 +74,7 @@ public class ClienteController {
     }
 
     @RequestMapping(value = "/busca", method = RequestMethod.GET)
+    @ResponseBody
     public Cliente buscaUsuario(@RequestParam("celular") String celular) {
 
         Usuario u = usuarioRepository.findByCelular(celular);
