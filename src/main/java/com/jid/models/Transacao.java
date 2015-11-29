@@ -25,6 +25,10 @@ public class Transacao {
     @ManyToOne
     private Cliente cliente;
 
+    private Calendar dataAtualizacao;
+
+    private EstadoTransacao estado;
+
     public Integer getId() {
         return id;
     }
@@ -63,5 +67,29 @@ public class Transacao {
 
     public void setData(Calendar data) {
         this.data = data;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Calendar getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+
+    public void setDataAtualizacao(Calendar dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
+    }
+
+    public EstadoTransacao getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoTransacao estado) {
+        this.estado = estado;
     }
 }
