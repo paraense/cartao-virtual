@@ -4,6 +4,7 @@
 
 <html ng-app="jdiClient">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/bower_components/components-font-awesome/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
@@ -32,7 +33,7 @@
                                     </a>
                                 </div>
                                 <div class="col-lg-2 col-lg-offset-5
-                               conditional-label">
+                               conditional-label col-xs-4 col-xs-offset-4">
                                     OU
                                 </div>
                             </div>

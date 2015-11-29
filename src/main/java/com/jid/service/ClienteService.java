@@ -56,10 +56,11 @@ public class ClienteService {
 
         Cliente clientePagador = session.getClienteLogado();
 
-        if (clientePagador.getSaldo().compareTo(valor) < 0) {
+/*        if (clientePagador.getSaldo().compareTo(valor) < 0) {
             System.out.println("O valor de tranferência é maior que o saldo");
             return "erro";
-        }
+        } */
+
         finalizarTransferenciaPagador(clientePagador, clienteReceptor, valor);
         finalizarTransferenciaReceptor(clientePagador, clienteReceptor, valor);
         return "sucesso";

@@ -394,7 +394,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <form method="post" name="recarga" id="transferencia-box" action="recarregar" novalidate>
-                                 <h4 id="error-message" class="error" style="display: none">Problema ao te encontrar no sistema</h4>
+                                <h4 id="error-message" class="error" style="display: none">Problema ao te encontrar no sistema</h4>
                                 <div class="row control-group">
                                     <div class="form-group col-xs-12 floating-label-form-group controls">
                                         <label>Celular</label>
@@ -402,24 +402,16 @@
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div id="user-data">
-                                    <div class="row control-group">
-                                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                                            <label>None</label>
-                                            <input type="text" name="nome" class="form-control" placeholder="Confirme seu nome" id="nome" disabled required >
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div class="row control-group">
-                                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                                            <label>email</label>
-                                            <input type="text" name="email" class="form-control" placeholder="Seu email" id="email" disabled required >
-                                            <p class="help-block text-danger"></p>
-                                        </div>
+                                <div class="row control-group" id="movement">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Celular</label>
+                                        <input type="text" name="valor" class="form-control" placeholder="Me ifrome a quantia" id="valor-transferencia" required >
+                                        <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
+                                </div>
                                 <br>
-                                <div id="success"></div>
+                                <div id=""></div>
                                 <div class="row">
                                     <div class="form-group col-xs-12">
                                         <button type="submit" class="btn btn-success btn-lg">Efeturar Recarga</button>
@@ -432,6 +424,39 @@
             </div>
         </div>
     </div>
+
+
+<!--    <div class="portfolio-modal modal fade" id="recarga-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                    <div id="user-data">
+                        <form method="post" name="recarga" id="endTransaction" action="recarregar" novalidate>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>None</label>
+                                    <input type="text" name="nome" class="form-control" placeholder="Confirme seu nome" id="nome" disabled required >
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="Seu email" id="email" disabled required >
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>email</label>
+                                    <input type="text" name="valor" class="form-control" placeholder="Escolha o valor de transferencia" id="valor-transferencia" required >
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                </div>
+            </div>
+            -->
 
     <div class="portfolio-modal modal fade" id="recarga-modal" tabindex="-1" role="dialog" aria-hidden="true">
        <div class="modal-content">
