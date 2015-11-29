@@ -1,5 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -12,10 +14,9 @@
     </head>
     <body>
         <div class="content main-box" ng-controller="AccessController as accessCtrl">
-            {{accessCtrl.tt}}
             <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 pull-right">
                 <div class="row">
-                    <form name="signup"  class="form-signin mg-btm" ng-submit="signup.$valid && signin(newUser)">
+                    <form:form name="signup"  method="post" action="/login" modelAttribute="user" class="form-signin mg-btm" ng-submit="signup.$valid && signin(newUser)">
                         <h3 class="heading-desc">
                             Facilite suas compras e ganhe muitas vantagens
                             </h3>
@@ -25,10 +26,20 @@
                                     <a href="#" class="btn btn-primary btn-block">
                                         <i class="icon-facebook"></i>   Entre com Facebook
                                     </a>
-
-
                                 </div>
                             </div>
+                                <div class="col-md-6 col-md-offset-2">
+                                    <c:if test="${param.error != null}">
+                                        <div class="alert alert-danger">
+                                            Invalid UserName and Password.
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${param.logout != null}">
+                                        <div class="alert alert-success">
+                                            You have been logged out.
+                                        </div>
+                                    </c:if>
+                                </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <a href="#" class="btn btn-info btn-block" >
@@ -43,14 +54,14 @@
                         </div>
                         <div class="main">
                             <div class="form-group"
-                                 ng-class="{'has-error': signup.email.$touched && signup.login.$invalid} ">
-                                <div class="help-block" ng-messages="signup.email.$error" ng-if="signup.login.$touched">
+                                 ng-class="{'has-error': signup.username.$touched && signup.username.$invalid} ">
+                                <div class="help-block" ng-messages="signup.username.$error" ng-if="signup.login.$touched">
                                     <p ng-message="required">Email é requerido</p>
-                                    <p ng-message="email">Voc&ecirc;e precisa informar um email v&aacute;lido</p>
-                                    <p ng-message="minlength">O email precisa ter no mínimo 5 caracteres</p>
+                                    <p ng-message="username">Voc&ecirc;e precisa informar um username v&aacute;lido</p>
+                                    <p ng-message="minlength">O username precisa ter no mínimo 5 caracteres</p>
                                 </div>
-                                <input type="email" name="email" required ng-minlength="5"  ng-model="newUser.email"
-                                       class="form-control" placeholder="Seu email" autofocus>
+                                <input id="username" type="username" name="username" required ng-minlength="5"  ng-model="newUser.email"
+                                       class="form-control" placeholder="Seu username" autofocus>
                             </div>
                             <div class="form-group"
                                  ng-class="{'has-error': signup.password.$touched && signup.password.$invalid}">
@@ -59,7 +70,7 @@
                                     Ainda nao se cadastrou ? <a href=""> inicie aqui</a>             <p ng-message="required">Voc&ecirc; precisa informar sua senha</p>
                                     <p ng-message="minlength">Sua senha precisa de 5 caracteres ou mais</p>
                                 </div>
-                                <input type="password" name="password" required ng-minlength="5" ng-model="newUser.password"
+                                <input id="password" type="password" name="password" required ng-minlength="5" ng-model="newUser.password"
                                        class="form-control" placeholder="Senha letras e numeros">
 
 
@@ -79,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>
