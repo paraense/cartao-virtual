@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jid.controllers;
 
 import com.jid.daos.ClienteRepository;
+import com.jid.daos.UsuarioRepository;
 import com.jid.models.Cliente;
 import com.jid.models.Usuario;
 import com.jid.service.ClienteService;
@@ -27,30 +23,31 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/cliente")
 public class ClienteController {
-    
+
     @Autowired
     private ClienteRepository clienteRepository;
-    
+
     @Autowired
     private SessionService session;
-    
+
     @Autowired
     private ClienteService clienteService;
-    
-    
-    
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
     private ModelAndView mav;
-    
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
-        
+
         Cliente cliente = session.getClienteLogado();
         this.mav = new ModelAndView();
         this.mav.addObject("cliente", cliente);
         this.mav.setViewName("home");
         return this.mav;
     }
-    
+
     @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
     @ResponseBody
     public String cadastrar(@RequestParam Cliente cliente) {
@@ -62,7 +59,7 @@ public class ClienteController {
             return "erro";
         }
     }
-    
+
     @RequestMapping(value = "/recarregar", method = RequestMethod.POST)
     @ResponseBody
     public String realizaRecarga(String valor) {
@@ -74,18 +71,22 @@ public class ClienteController {
             return "erro";
         }
     }
-    
-    @RequestMapping(value = "/busca", method = RequestMethod.GET)
-    @ResponseBody
-    public void buscaUsuario(@RequestParam("celular") String celular) {
-        //busca usuario e tras a informações
+
+    @RequestMapping(value = "/busca", method = RequestMethod.GET)    
+    public Cliente buscaUsuario(@RequestParam("celular") String celular) {
+      
+        Usuario u = usuarioRepository.findByCelular(celular);
+        if (u != null) {
+            return clienteRepository.findByUsuario(u);
+        }
+        return null;
     }
-    
+
     @RequestMapping(value = "/transferir", method = RequestMethod.POST)
     @ResponseBody
     public void tranfereValor(Cliente destinatario, BigDecimal valor) {
         clienteService.tranferencia(destinatario, valor);
-        
+
     }
-    
+
 }
