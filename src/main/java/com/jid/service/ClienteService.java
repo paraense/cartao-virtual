@@ -1,8 +1,6 @@
 package com.jid.service;
 
 import br.com.uol.pagseguro.domain.Transaction;
-import br.com.uol.pagseguro.properties.PagSeguroConfig;
-import br.com.uol.pagseguro.service.NotificationService;
 import com.jid.daos.ClienteRepository;
 import com.jid.daos.ExtratoRepository;
 import com.jid.models.Cliente;
@@ -12,11 +10,13 @@ import com.jid.models.TipoExtrato;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author John
  */
+@Service
 public class ClienteService {
 
     @Autowired
@@ -88,29 +88,6 @@ public class ClienteService {
         clienteReceptor.getExtratos().add(extrato);
 
         clienteRepository.save(clienteReceptor);
-    }
-
-    public void consultaTransacao(String codigoNotificacao) {
-
-        Transaction transacao = null;
-        try {
-            transacao = NotificationService
-                    .checkTransaction(PagSeguroConfig.getAccountCredentials(), codigoNotificacao);
-        } catch (Exception e) {
-            System.err.print(e.getMessage());
-        }
-
-        if (transacao != null) {
-            extrato = extratoRepository
-                    .findByExtratoPorCod(transacao.getReference());
-            extrato = atualizaStatusExtrato(extrato, transacao);
-            
-            if (extrato.getStatus().equals(StatusExtrato.APROVADA)) {    
-                creditaValor(extrato, transacao);
-
-            }
-        }
-
     }
 
     public void creditaValor(Extrato extrato, Transaction transacao) {

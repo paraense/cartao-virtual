@@ -12,5 +12,7 @@ import java.util.List;
 public interface ExtratoRepository extends CrudRepository<Extrato, Long> {
     List<Extrato> findByCliente(Cliente cliente);
     
-    Extrato findByExtratoPorCod(String cod);
+    Extrato findByCodReferencia(String cod);
+    
+    
 }
