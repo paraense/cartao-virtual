@@ -85,6 +85,7 @@ public class ClienteController {
     @RequestMapping(value = "/transferir", method = RequestMethod.POST)
     @ResponseBody
     public void tranfereValor(Cliente destinatario, BigDecimal valor) {
+    public void tranfereValor(@RequestParam Cliente destinatario, @RequestParam BigDecimal valor) {
         clienteService.tranferencia(destinatario, valor);
 
     }
