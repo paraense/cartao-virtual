@@ -14,6 +14,7 @@ public class Transacao {
     private Integer id;
 
     @ManyToOne
+    @JoinColumn(name = "loja_id")
     private Loja loja;
 
     private String descricao;
