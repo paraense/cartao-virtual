@@ -1,9 +1,0 @@
-diff a/src/main/java/com/jid/controllers/ClienteController.java b/src/main/java/com/jid/controllers/ClienteController.java	(rejected hunks)
-@@ -41,7 +41,6 @@
-     
-     @RequestMapping(value = "/home", method = RequestMethod.GET)
-     public ModelAndView home() {
--        cliente = session.getClienteLogado();
-         System.out.println("Home entrou");
-         
-         Cliente cliente = session.getClienteLogado();
