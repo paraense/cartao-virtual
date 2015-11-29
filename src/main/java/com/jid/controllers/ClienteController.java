@@ -44,6 +44,7 @@ public class ClienteController {
         Cliente cliente = session.getClienteLogado();
         this.mav = new ModelAndView();
         this.mav.addObject("cliente", cliente);
+        mav.addObject("transacoes", cliente.getTransacoes());
         this.mav.setViewName("home");
         return this.mav;
     }

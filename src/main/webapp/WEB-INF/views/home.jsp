@@ -17,7 +17,6 @@
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <script src="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/freelancer.css">
