@@ -34,7 +34,7 @@ public class PagSeguroService {
         String ddd = cliente.getUsuario().getCelular().substring(1, 2);
         System.out.println(ddd);
         
-        checkout.setSender(cliente.getNome(), cliente.getUsuario().getEmail(),
+        checkout.setSender(cliente.getUsuario().getNome(), cliente.getUsuario().getEmail(),
                 ddd, cliente.getUsuario().getCelular(), DocumentType.CPF, cliente.getCpf());
 
         checkout.setReference("1111-2222-3333-4444");

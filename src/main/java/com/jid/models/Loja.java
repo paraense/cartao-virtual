@@ -20,6 +20,9 @@ public class Loja {
     @JoinColumn(name = "loja")
     private List<Transacao> trsansacoes;
 
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    private Usuario usuario;
+
     public Integer getId() {
         return id;
     }
@@ -50,5 +53,13 @@ public class Loja {
 
     public void setTrsansacoes(List<Transacao> trsansacoes) {
         this.trsansacoes = trsansacoes;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

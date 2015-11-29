@@ -1,12 +1,12 @@
 package com.jid.controllers;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import com.jid.daos.ProductRepository;
 import com.jid.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;

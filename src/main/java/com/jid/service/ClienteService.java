@@ -70,7 +70,7 @@ public class ClienteService {
         Extrato extrato = new Extrato();
         extrato.setStatus(StatusExtrato.APROVADA);
         extrato.setTipoExtrato(TipoExtrato.SAIDA);
-        extrato.setDescricao("Transferência de créditos para " + clienteReceptor.getNome());
+        extrato.setDescricao("Transferência de créditos para " + clienteReceptor.getUsuario().getNome());
         extrato.setData(Calendar.getInstance());
         clientePagador.getExtratos().add(extrato);
 
@@ -85,7 +85,7 @@ public class ClienteService {
         Extrato extrato = new Extrato();
         extrato.setStatus(StatusExtrato.EM_USO);
         extrato.setTipoExtrato(TipoExtrato.ENTRADA);
-        extrato.setDescricao("Vale Presente de  " + clientePagador.getNome());
+        extrato.setDescricao("Vale Presente de  " + clientePagador.getUsuario().getNome());
         extrato.setData(Calendar.getInstance());
         clienteReceptor.getExtratos().add(extrato);
 

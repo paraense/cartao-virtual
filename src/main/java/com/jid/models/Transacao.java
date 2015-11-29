@@ -29,6 +29,8 @@ public class Transacao {
 
     private EstadoTransacao estado;
 
+    private String codigo;
+
     public Integer getId() {
         return id;
     }
@@ -91,5 +93,13 @@ public class Transacao {
 
     public void setEstado(EstadoTransacao estado) {
         this.estado = estado;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }
