@@ -26,12 +26,16 @@ public class Cliente {
 
     private Calendar nascimento;
 
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Usuario usuario;
 
     @OneToMany
     @JoinColumn(name = "cliente")
     private List<Extrato> extratos;
+    
+    @OneToMany
+    @JoinColumn(name = "cliente")
+    private List<Transacao> transacoes;
 
     public Integer getId() {
         return id;
@@ -104,6 +108,16 @@ public class Cliente {
     public void setExtratos(List<Extrato> extratos) {
         this.extratos = extratos;
     }
+
+    public List<Transacao> getTransacoes() {
+        return transacoes;
+    }
+
+    public void setTransacoes(List<Transacao> transacoes) {
+        this.transacoes = transacoes;
+    }
+    
+    
     
     
 }

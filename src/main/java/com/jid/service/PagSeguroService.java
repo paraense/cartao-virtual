@@ -35,7 +35,7 @@ public class PagSeguroService {
         System.out.println(ddd);
         //tratar ddd de celular
         checkout.setSender(cliente.getNome(), cliente.getUsuario().getEmail(),
-                "91", cliente.getUsuario().getCelular(), DocumentType.CPF, cliente.getCpf());
+                ddd, cliente.getUsuario().getCelular(), DocumentType.CPF, cliente.getCpf());
 
         checkout.setReference("COD-DE-REFERENCIA-GERAR");
         checkout.setRedirectURL("http://www.cartaovirtual.com.br/profile");

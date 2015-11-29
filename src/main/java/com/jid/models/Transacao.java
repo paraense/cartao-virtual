@@ -21,6 +21,9 @@ public class Transacao {
     private BigDecimal valor;
 
     private Calendar data;
+    
+    @ManyToOne
+    private Cliente cliente;
 
     public Integer getId() {
         return id;
