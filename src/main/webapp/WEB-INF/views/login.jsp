@@ -25,6 +25,8 @@
                                     <a href="#" class="btn btn-primary btn-block">
                                         <i class="icon-facebook"></i>   Entre com Facebook
                                     </a>
+
+
                                 </div>
                             </div>
                             <div class="row">
