@@ -9,4 +9,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
     Cliente findByUsuario(Usuario usuario);
+    Cliente findByCpf(String cpf);
 }

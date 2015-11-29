@@ -7,13 +7,12 @@ import com.jid.models.Usuario;
 import com.jid.service.ClienteService;
 import com.jid.service.SessionService;
 import java.math.BigDecimal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -88,6 +87,12 @@ public class ClienteController {
     public void tranfereValor(Cliente destinatario, BigDecimal valor) {
         clienteService.tranferencia(destinatario, valor);
 
+    }
+
+    @RequestMapping(value = "/buscaCpf/{cpf}")
+    @ResponseBody
+    public Cliente buscaCpf(@PathVariable String cpf) {
+        return clienteRepository.findByCpf(cpf);
     }
 
 }

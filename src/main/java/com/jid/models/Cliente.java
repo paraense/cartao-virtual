@@ -25,7 +25,7 @@ public class Cliente {
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Usuario usuario;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente")
     private List<Extrato> extratos;
     
