@@ -21,26 +21,14 @@
                             <div class="row mg-btm">
                                 <div class="col-md-12">
                                     <a href="#" class="btn btn-primary btn-block">
-                                        <i class="icon-facebook"></i>   Entre com Facebook
+                                        <i class="icon-facebook"></i>Entre com Facebook
                                     </a>
                                 </div>
                             </div>
-                                <div class="col-md-6 col-md-offset-2">
-                                    <c:if test="${param.error != null}">
-                                        <div class="alert alert-danger">
-                                            Invalid UserName and Password.
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${param.logout != null}">
-                                        <div class="alert alert-success">
-                                            You have been logged out.
-                                        </div>
-                                    </c:if>
-                                </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <a href="#" class="btn btn-info btn-block" >
-                                        <i class="icon-twitter"></i>   Entre com Twitter
+                                        <i class="icon-twitter"></i>Entre com Twitter
                                     </a>
                                 </div>
                                 <div class="col-lg-2 col-lg-offset-5
@@ -50,6 +38,18 @@
                             </div>
                         </div>
                         <div class="main">
+                            <div class="col-md-6 col-md-offset-2">
+                                <c:if test="${param.error != null}">
+                                    <div class="alert alert-danger">
+                                        Invalid UserName and Password.
+                                    </div>
+                                </c:if>
+                                <c:if test="${param.logout != null}">
+                                    <div class="alert alert-success">
+                                        You have been logged out.
+                                    </div>
+                                </c:if>
+                            </div>
                             <div class="form-group"
                                  ng-class="{'has-error': signup.username.$touched && signup.username.$invalid} ">
                                 <div class="help-block" ng-messages="signup.username.$error" ng-if="signup.login.$touched">

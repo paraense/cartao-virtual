@@ -67,6 +67,9 @@
                     <li class="page-scroll">
                         <a href="#recarga-modal" class="portfolio-link" data-toggle="modal">Recarga</a>
                     </li>
+                    <li class="page-scroll">
+                        <a href="#trasferencia-modal" class="portfolio-link" data-toggle="modal">Transferir</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -81,7 +84,7 @@
                 <div class="col-lg-12">
                     <img class="img-responsive" src="/assets/img/user.png" alt="">
                     <div class="intro-text">
-                        <span class="name"> ${cliente.usuario.nome}</span>
+                        <span class="name"> ${cliente.usuario.nome} </span>
                         <hr class="star-light">
                         <span class="skills"> Voc&ecirc; tem R$ ${cliente.saldo} em sua carteira</span>
                     </div>
@@ -111,6 +114,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <c:forEach items="${transacoes}" var="transacao">
+                            <tr>
+                                <td>${transacao.loja.nome}</td>
+                                <td>${transacao.valor}</td>
+                                <td>${transacao.descricao}</td>
+                            </tr>
+                        </c:forEach>
                             <!-- lugar dos elementos -->
                         </tbody>
                     </table>
@@ -157,7 +167,7 @@
                         <p>Av. Bl-10<br>Proximo ao boulevard</p>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Nos na rede</h3>
+                        <h3>N&oacute;s na rede</h3>
                         <ul class="list-inline">
                             <li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
@@ -188,7 +198,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; CCard
+                        Copyright &copy; DIGCARD
                     </div>
                 </div>
             </div>
@@ -372,6 +382,40 @@
             </div>
         </div>
     </div>
+    <div class="portfolio-modal modal fade" id="trasferencia-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <form method="post" name="recarga" id="transferencia-box" action="recarregar" novalidate>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Celular</label>
+                                        <input type="text" name="celular" class="form-control" placeholder="Precisamos do seu celular, somente numeros" id="phone" required >
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div id="success"></div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Efeturar Recarga</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="portfolio-modal modal fade" id="recarga-modal" tabindex="-1" role="dialog" aria-hidden="true">
        <div class="modal-content">
@@ -427,6 +471,7 @@
     <script src="<c:url value="/assets/js/template/freelancer.js"/> "></script>
     <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="/assets/js/data-table.js"></script>
+    <script src="/assets/js/transferencia.js"></script>
 </body>
 
 </html>
