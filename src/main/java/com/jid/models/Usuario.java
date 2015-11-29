@@ -1,7 +1,9 @@
 package com.jid.models;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Created by igor on 28/11/15.
@@ -12,21 +14,13 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
     private String nome;
 
-    @NotNull
-    @Column(unique = true)
     private String email;
 
-    @NotNull
     private String senha;
-
-    @NotNull
-    @Column(unique = true)
+    
     private String celular;
-
-    private PermissaoUsuario permissao;
 
     public Integer getId() {
         return id;
@@ -67,12 +61,7 @@ public class Usuario {
     public void setCelular(String celular) {
         this.celular = celular;
     }
-
-    public PermissaoUsuario getPermissao() {
-        return permissao;
-    }
-
-    public void setPermissao(PermissaoUsuario permissao) {
-        this.permissao = permissao;
-    }
+    
+    
+    
 }
