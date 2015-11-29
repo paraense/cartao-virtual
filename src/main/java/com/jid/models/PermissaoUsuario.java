@@ -5,5 +5,6 @@ package com.jid.models;
  */
 public enum PermissaoUsuario {
     CLIENTE,
-    LOJA
+    LOJA,
+    ADMIN
 }
