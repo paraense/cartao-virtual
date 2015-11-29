@@ -29,7 +29,7 @@ public class Cliente {
     @JoinColumn(name = "cliente")
     private List<Extrato> extratos;
     
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente")
     private List<Transacao> transacoes;
 
