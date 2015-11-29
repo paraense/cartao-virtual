@@ -54,6 +54,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         //you can change
-        web.ignoring().antMatchers("/resources/**");
+        web.ignoring().antMatchers("/assets/**");
     }
 }
