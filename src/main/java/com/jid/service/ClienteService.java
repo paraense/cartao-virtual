@@ -7,8 +7,11 @@ import com.jid.models.Cliente;
 import com.jid.models.Extrato;
 import com.jid.models.StatusExtrato;
 import com.jid.models.TipoExtrato;
+import com.jid.util.Sha;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Calendar;
+import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,16 +37,19 @@ public class ClienteService {
     public String efetuarRecarga(BigDecimal valor) {
 
         Cliente cliente = session.getClienteLogado();
-        String l = pagSeguroService.efetuaCheckout(cliente, valor);
-
+        String cod = Sha.bytesToHex((new BigInteger(40, new Random())).toByteArray()).substring(0, 12);
+        
         Extrato extrato = new Extrato();
+        extrato.setCodReferencia(cod);
         extrato.setTipoExtrato(TipoExtrato.ENTRADA);
         extrato.setStatus(StatusExtrato.EM_ANALISE);
         extrato.setValor(valor);
         extrato.setData(Calendar.getInstance());
         extrato.setCliente(cliente);
         extratoRepository.save(extrato);
-        return l;
+
+        return pagSeguroService.efetuaCheckout(cliente, valor, cod);
+        
     }
 
     public String tranferencia(Cliente clienteReceptor, BigDecimal valor) {

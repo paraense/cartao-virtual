@@ -27,7 +27,7 @@ public class PagSeguroService {
     @Autowired
     private ClienteService clienteService;
 
-    public String efetuaCheckout(Cliente cliente, BigDecimal valor) {
+    public String efetuaCheckout(Cliente cliente, BigDecimal valor, String cod) {
 
         System.out.println("Entrou no checkout");
         Checkout checkout = new Checkout();
@@ -43,7 +43,7 @@ public class PagSeguroService {
 
         checkout.setCurrency(Currency.BRL);
 
-        checkout.setReference("1111-2222-3333-4444");
+        checkout.setReference(cod);
         checkout.setRedirectURL("http://107.170.8.244:8080/cliente/home");
         checkout.setNotificationURL("http://107.170.8.244:8080/notificacao");
 
