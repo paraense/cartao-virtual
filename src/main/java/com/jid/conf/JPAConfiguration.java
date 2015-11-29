@@ -19,53 +19,47 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-public class JPAConfiguration
-{
+public class JPAConfiguration {
 
-   @Bean
-   public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource)
-   {
-      LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-      em.setDataSource(dataSource);
-      em.setPackagesToScan(new String[] { "com.jid.models" });
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource);
+        em.setPackagesToScan(new String[]{"com.jid.models"});
 
-      JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-      em.setJpaVendorAdapter(vendorAdapter);
-      em.setJpaProperties(additionalProperties());
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(additionalProperties());
 
-      return em;
-   }
+        return em;
+    }
 
-   @Bean
-   public DataSource dataSource(Environment environment)
-   {
-      DriverManagerDataSource dataSource = new DriverManagerDataSource();
-      dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-      dataSource.setUrl("jdbc:mysql://localhost/jid");
-      dataSource.setUsername("root");
-      dataSource.setPassword("root");
-      return dataSource;
-   }
+    @Bean
+    public DataSource dataSource(Environment environment) {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost/jdi");
+        dataSource.setUsername("root");
+        dataSource.setPassword("5@290E4f");
+        return dataSource;
+    }
 
-   @Bean
-   public PlatformTransactionManager transactionManager(EntityManagerFactory emf)
-   {
-      JpaTransactionManager transactionManager = new JpaTransactionManager();
-      transactionManager.setEntityManagerFactory(emf);
-      return transactionManager;
-   }
+    @Bean
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
+        return transactionManager;
+    }
 
-   @Bean
-   public PersistenceExceptionTranslationPostProcessor exceptionTranslation()
-   {
-      return new PersistenceExceptionTranslationPostProcessor();
-   }
+    @Bean
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+        return new PersistenceExceptionTranslationPostProcessor();
+    }
 
-   Properties additionalProperties()
-   {
-      Properties properties = new Properties();
-      properties.setProperty("hibernate.hbm2ddl.auto", "update");
-      properties.setProperty("hibernate.show_sql", "true");
-      return properties;
-   }
+    Properties additionalProperties() {
+        Properties properties = new Properties();
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");
+        properties.setProperty("hibernate.show_sql", "true");
+        return properties;
+    }
 }
