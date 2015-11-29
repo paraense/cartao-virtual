@@ -98,6 +98,8 @@
                 </div>
             </div>
             <div class="row">
+                <c:forEach items="${cliente.transacoes}" var="transacao">
+                </c:forEach>
                 <div class="col-sm-4 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
