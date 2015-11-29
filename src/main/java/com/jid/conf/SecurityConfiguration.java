@@ -1,5 +1,7 @@
 package com.jid.conf;
 
+import com.jid.service.JidUserDetailsService;
+import com.jid.util.JidPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,12 +14,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter
-{
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-   @Override
-   protected void configure(HttpSecurity http) throws Exception
-   {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
       /*
       EXAMPLE OF AUTHENTICATION AND AUTHORIZATION
       
@@ -32,22 +32,28 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
       .and()
       .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
        */
-   }
 
-   @Autowired
-   private UserDetailsService users;
+        http
+                .csrf().disable().authorizeRequests()
+//                .antMatchers("/").authenticated()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login").permitAll()
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+    }
 
-   @Override
-   protected void configure(AuthenticationManagerBuilder auth)
-         throws Exception
-   {
-      auth.userDetailsService(users).passwordEncoder(new BCryptPasswordEncoder());
-   }
+    @Autowired
+    private JidUserDetailsService users;
 
-   @Override
-   public void configure(WebSecurity web) throws Exception
-   {
-      //you can change 
-      web.ignoring().antMatchers("/resources/**");
-   }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(users).passwordEncoder(new JidPasswordEncoder());
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        //you can change
+        web.ignoring().antMatchers("/resources/**");
+    }
 }
