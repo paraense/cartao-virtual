@@ -41,11 +41,12 @@ public class ClienteController {
     
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
-        Cliente cliente = new Cliente();
-        cliente = session.getClienteLogado();
-
-        this.mav = new ModelAndView();
+        System.out.println("Home entrou");
+        
+        Cliente cliente = session.getClienteLogado();
+        
         this.mav.addObject("cliente", cliente);
+        this.mav = new ModelAndView();
         this.mav.setViewName("home");
         return this.mav;
     }
