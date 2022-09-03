@@ -10,8 +10,6 @@ compartilhando o crédito entre esses cartões, com opções de limitar o crédi
 
 <p> Também era um ideia inovadora na época usar o número de celular ou cpf pra realizar pagamentos ..."</p>
 
-
-
 #### Algumas matérias publicadas da época sobre nosso projeto:
 - http://pctguama.org.br/?p=1265&lang=pt
 - https://g1.globo.com/pa/para/jornal-liberal-2edicao/videos/t/edicoes/v/batalha-de-hackers-ocorre-dentro-de-shopping-em-belem/4641731/?fbclid=IwAR2mTzEdTFVo6_lirPfey1rk6ZKGgnB3CnlajR-PkYYFahUgCbDe3YyrBio
@@ -20,5 +18,7 @@ compartilhando o crédito entre esses cartões, com opções de limitar o crédi
 
 <p> Desconsidere o código cheio de más praticas, na época éramos Programadores Júniors e tivemos 32 horas pra entregar 3 aplicações: Sistema Web do cliente, Sistema Web do Logista, App Mobile para o cliente. Além de integrações com meios de pagamento (PagSeguro).</p> 
 <p> Sim! no dia fizemos transações reais pra demostar o produto funcionando</p>
+
+<p> Infelizmente alguns repos, como o do app mobile não estão mais disponíveis :( </p>
 
 
