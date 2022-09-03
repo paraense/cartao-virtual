@@ -4,11 +4,11 @@ Projeto Vencedor do Hackthon Conjove 2015 que aconteceu em Belém do Pará.
 <p> O projeto consiste em uma plataforma onde é possível criar cartões de créditos virtuais a partir de um cartão físico, 
 compartilhando o crédito entre esses cartões, com opções de limitar o crédito de cada cartão criado. Isso parece familiar ?</p>
 
-<p> Também é possível fazer comprar em estabelecimentos físicos sem o cartão de créditos físico, basta criar e vincular um cartão virtual a uma chave que pode ser seu cpf ou número de celular (ué, pix?) e procuar um estabelecimeto credenciado </p>
+<p> Também é possível fazer comprar em estabelecimentos físicos sem o cartão de créditos físico, basta criar e vincular um cartão virtual a uma chave que pode ser seu cpf ou número de celular (ué, pix?) e procurar um estabelecimeto credenciado </p>
  
  <p>Hoje é muito comum (e recomendável) criar cartões virtuais para fazer compras on-line, mas em 2015, nenhum banco disponibilizavam essa funcionalidade (Será que somos os Pais dessa tecnologia? rs) </p>
 
-<p> Também era um ideia inovadora na época usar o número de celular ou cpf pra realizar pagamentos ..."</p>
+<p> Também era um ideia inovadora na época usar o número de celular ou cpf pra realizar pagamentos ...</p>
 
 #### Algumas matérias publicadas da época sobre nosso projeto:
 - http://pctguama.org.br/?p=1265&lang=pt
