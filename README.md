@@ -23,7 +23,7 @@ compartilhando o crédito entre esses cartões, com opções de limitar o crédi
 
 # Executando
 
-## Requisito
+## Requisitos
  - Java 8
  - Maven 3.x
  - Docker
