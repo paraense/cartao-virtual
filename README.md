@@ -14,7 +14,7 @@ compartilhando o crédito entre esses cartões, com opções de limitar o crédi
 - http://pctguama.org.br/?p=1265&lang=pt
 - https://g1.globo.com/pa/para/jornal-liberal-2edicao/videos/t/edicoes/v/batalha-de-hackers-ocorre-dentro-de-shopping-em-belem/4641731/?fbclid=IwAR2mTzEdTFVo6_lirPfey1rk6ZKGgnB3CnlajR-PkYYFahUgCbDe3YyrBio
 - https://dol.com.br/notired-351912-8-.html?fbclid=IwAR0R-cup9n3ZS-Mqdivoflo6rLFohu4_MadFMG1wOfSOF29z2g9YkV6Q3cA
--http://www.ormnews.com.br/noticia/cartao-virtual-e-apontado-como-solucao-ao-varejo?fbclid=IwAR15tv0IImjdLaLyITlsIHvLRtNtobqTgHg7JGnUvF2SNJKEO3HgtkFKBqo
+- http://www.ormnews.com.br/noticia/cartao-virtual-e-apontado-como-solucao-ao-varejo?fbclid=IwAR15tv0IImjdLaLyITlsIHvLRtNtobqTgHg7JGnUvF2SNJKEO3HgtkFKBqo
 
 <p> Desconsidere o código cheio de más praticas, na época éramos Programadores Júniors e tivemos 32 horas pra entregar 3 aplicações: Sistema Web do cliente, Sistema Web do Logista, App Mobile para o cliente. Além de integrações com meios de pagamento (PagSeguro).</p> 
 <p> Sim! no dia fizemos transações reais pra demostar o produto funcionando</p>
