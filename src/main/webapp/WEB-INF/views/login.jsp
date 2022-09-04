@@ -5,10 +5,10 @@
 <html ng-app="jdiClient">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/bower_components/components-font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/bower_components/components-font-awesome/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="/assets/css/wallet.css">
+        <link rel="stylesheet" href="assets/css/wallet.css">
     </head>
     <body>
         <div class="content main-box" ng-controller="AccessController as accessCtrl">
@@ -93,16 +93,16 @@
             </div>
         </div>
     </body>
-    <script src="<c:url value="/assets/bower_components/jquery/dist/jquery.min.js"/>"></script>
-    <script src="<c:url value="/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"/>"></script>
-    <script src="<c:url value="/assets/bower_components/angular/angular.min.js"/>"></script>
-    <script src="<c:url value="/assets/bower_components/angular-messages/angular-messages.min.js"/>"></script>
-    <script src="<c:url value="/assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"/>"></script>
-    <script src="<c:url value="/assets/bower_components/angular-ui-mask/dist/mask.min.js"/>"></script>
-    <script src="<c:url value="/assets/bower_components/angular-animate/angular-animate.min.js"/>"></script>
-    <script src="<c:url value="/assets/bower_components/angular-resource/angular-resource.min.js"/>"></script>
+    <script src="<c:url value="./assets/bower_components/jquery/dist/jquery.min.js"/>"></script>
+    <script src="<c:url value="./assets/bower_components/bootstrap/dist/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="./assets/bower_components/angular/angular.min.js"/>"></script>
+    <script src="<c:url value="./assets/bower_components/angular-messages/angular-messages.min.js"/>"></script>
+    <script src="<c:url value="./assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"/>"></script>
+    <script src="<c:url value="./assets/bower_components/angular-ui-mask/dist/mask.min.js"/>"></script>
+    <script src="<c:url value="./assets/bower_components/angular-animate/angular-animate.min.js"/>"></script>
+    <script src="<c:url value="./assets/bower_components/angular-resource/angular-resource.min.js"/>"></script>
 
-    <script src="/assets/js/mall_wallet.js"></script>
-    <script src="/assets/js/controllers/access_controller.js"></script>
-    <script src="/assets/js/services/user.js"></script>
+    <script src="./assets/js/mall_wallet.js"></script>
+    <script src="./assets/js/controllers/access_controller.js"></script>
+    <script src="./assets/js/services/user.js"></script>
 </html>

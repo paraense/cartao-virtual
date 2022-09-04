@@ -40,7 +40,7 @@ public class JPAConfiguration {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost/jdi");
         dataSource.setUsername("root");
-        dataSource.setPassword("5@290E4f");
+        dataSource.setPassword("root");
         return dataSource;
     }
 
@@ -60,6 +60,7 @@ public class JPAConfiguration {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.show_sql", "true");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         return properties;
     }
 }
