@@ -25,6 +25,7 @@ compartilhando o crédito entre esses cartões, com opções de limitar o crédi
 
 ## Requisito
  - Java 8
+ - Maven 3.x
  - Docker
  - Docker compose
 
