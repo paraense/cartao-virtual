@@ -21,4 +21,24 @@ compartilhando o crédito entre esses cartões, com opções de limitar o crédi
 
 <p> Infelizmente alguns repos, como o do app mobile não estão mais disponíveis :( </p>
 
+# Executando
+
+## Requisito
+ - Java 8
+ - Docker
+ - Docker compose
+
+Primeiro você precisa compilar o projeto. Abra o terminal e navegue até a pasta raís do projeto e então digite o seguinte comando:
+``` 
+mvn clean install 
+```
+
+E agora pode executar
+``` 
+docker compose up 
+```
+
+Após o termino do deploy a aplicação estará disponível em:
+http://localhost:8080/cartao-virtual-1.0.0-SNAPSHOT/
+
 
