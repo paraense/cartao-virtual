@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -15,6 +16,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableJpaRepositories(basePackages = "com.jid.daos")
 public class AppWebConfiguration extends WebMvcConfigurerAdapter
 {
+
+   @Override
+   public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+      registry.addResourceHandler("/styles/**")
+              .addResourceLocations("/WEB-INF/views/assets/").setCachePeriod(120000);
+   }
 
    @Override
    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)

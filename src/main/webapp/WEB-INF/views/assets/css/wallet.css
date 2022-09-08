@@ -1,5 +1,5 @@
 body {
-    background-image: url("/assets/img/my-wallet-brand.jpg");
+    background-image: url("${pageContext.request.contextPath}/styles/img/my-wallet-brand.jpg");
 }
 
 .main-box {

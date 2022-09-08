@@ -15,14 +15,14 @@
     <title>DigCard</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link rel="stylesheet" href="../assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../assets/css/freelancer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/css/freelancer.css">
 
     <!-- Custom Fonts -->
 
-    <link rel="stylesheet" href="../assets/bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/bower_components/components-font-awesome/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
           type="text/css">
@@ -77,7 +77,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <img class="img-responsive" src="../assets/img/user.png" alt="">
+                <img class="img-responsive" src="/styles/img/user.png" alt="">
 
                 <div class="intro-text">
                     <span class="name"> ${loja.nome}</span>
@@ -373,23 +373,23 @@
 
 
 <!-- jQuery -->
-<script src="<c:url value="../assets/bower_components/jquery/dist/jquery.min.js"/>"></script>
+<script src="<c:url value="/styles/bower_components/jquery/dist/jquery.min.js"/>"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="<c:url value="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/styles/bower_components/bootstrap/dist/js/bootstrap.min.js"/>"></script>
 
 <!-- Plugin JavaScript -->
-<script src="<c:url value="../assets/js/template/classie.js"/> "></script>
-<script src="<c:url value="../assets/js/template/cbpAnimatedHeader.min.js"/> "></script>
+<script src="<c:url value="/styles/js/template/classie.js"/> "></script>
+<script src="<c:url value="/styles/js/template/cbpAnimatedHeader.min.js"/> "></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
 <!-- Contact Form JavaScript -->
-<script src="<c:url value="../assets/js/template/jqBootstrapValidation.js"/> "></script>
-<script src="<c:url value="../assets/js/template/contact_me.js"/> "></script>
+<script src="<c:url value="/styles/js/template/jqBootstrapValidation.js"/> "></script>
+<script src="<c:url value="/styles/js/template/contact_me.js"/> "></script>
 <script src="js/jqBootstrapValidation.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="<c:url value="../assets/js/template/freelancer.js"/> "></script>
+<script src="<c:url value="/styles/js/template/freelancer.js"/> "></script>
 
 <script>
     function finaliza() {
