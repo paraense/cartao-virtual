@@ -9,7 +9,6 @@ jobs:
     environment: 
       name: aws
     steps:
-    - uses: actions/checkout@v3
     - name: Compile 
       run: mvn clean package
     - id: deploy
