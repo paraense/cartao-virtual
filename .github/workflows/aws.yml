@@ -14,7 +14,7 @@ jobs:
     - name: Compile 
       run: mvn clean package
     - name: list
-      run: ls $GITHUB_WORKSPACE
+      run: ls $GITHUB_WORKSPACE/target/
       
     - id: deploy
       uses: bitovi/github-actions-deploy-docker-to-ec2@v1.0.0
