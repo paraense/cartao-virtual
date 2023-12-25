@@ -1,5 +1,4 @@
-name: Docker Image CI
-
+name: Compile and Build Docker Image
 on:
   push:
     branches: [ "master" ]
