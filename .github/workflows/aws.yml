@@ -15,5 +15,5 @@ jobs:
       with:
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws_default_region: ${{ vars.AWS_REGION }}
+        aws_default_region: ${{ aws.AWS_REGION }}
         aws_elb_app_port: 8080 
