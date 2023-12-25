@@ -1,7 +1,7 @@
 name: Compile and Build Docker Image
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "develop" ]
   pull_request:
     branches: [ "master" ]
 
