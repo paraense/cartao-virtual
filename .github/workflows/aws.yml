@@ -13,9 +13,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Compile 
       run: mvn clean package
-    - name: Move JAR to Deployment Directory
-      run: mv target/cartao-virtual-1.0.0-SNAPSHOT.war $GITHUB_WORKSPACE/target/cartao-virtual-1.0.0-SNAPSHOT.war
-    
+      
     - id: deploy
       uses: bitovi/github-actions-deploy-docker-to-ec2@v1.0.0
       with:
