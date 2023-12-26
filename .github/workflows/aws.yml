@@ -20,7 +20,7 @@ jobs:
         aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws_default_region: us-east-1
-        docker_repo_app_directory: $GITHUB_WORKSPACE
+        docker_repo_app_directory: ${{vars.GITHUB_WORKSPACE}}
         aws_elb_app_port: 8080 
     - name: show path
       run: ls $GITHUB_WORKSPACE/target/
