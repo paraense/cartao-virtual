@@ -16,7 +16,7 @@ jobs:
       
     - name: War Generated  
       env:
-        WORKSPACE: ${{GITHUB_WORKSPACE}}
+        WORKSPACE: ${{vars.GITHUB_WORKSPACE}}
       run: ls $WORKSPACE  
       
     - id: deploy
