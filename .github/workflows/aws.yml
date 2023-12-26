@@ -20,10 +20,10 @@ jobs:
     - id: deploy
       uses: bitovi/github-actions-deploy-docker-to-ec2@v1.0.0
       with:
+        docker_repo_app_directory: $GITHUB_WORKSPACE
+        docker_repo_app_directory_cleanup: false
         aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws_default_region: ${{vars.AWS_REGION}}
-        docker_repo_app_directory: $GITHUB_WORKSPACE
-        docker_repo_app_directory_cleanup: false
         aws_elb_app_port: 8080 
     
