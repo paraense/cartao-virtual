@@ -16,7 +16,7 @@ jobs:
       
     - name: War Generated  
       env:
-        WORKSPACE: echo $GITHUB_WORKSPACE
+        WORKSPACE: ${GITHUB_WORKSPACE}
       run: ls $WORKSPACE  
       
     - id: deploy
